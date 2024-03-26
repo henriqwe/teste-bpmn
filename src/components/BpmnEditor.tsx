@@ -1,12 +1,8 @@
 import { useEffect } from "react";
 import BpmnViewer from "bpmn-js/lib/Modeler";
 
-export function BpmnEditor({ diagram }: { diagram: File }) {
+export function BpmnEditor({ diagram }: { diagram?: File | undefined }) {
   useEffect(() => {
-    if (!diagram) {
-      return;
-    }
-
     const viewer = new BpmnViewer({
       container: "#bpmnContainer",
       width: "100%",
@@ -17,8 +13,12 @@ export function BpmnEditor({ diagram }: { diagram: File }) {
     });
 
     async function inicia() {
+      if (!diagram) {
+        return;
+      }
+
       try {
-        const bpmnText = await diagram!.text();
+        const bpmnText = await diagram.text();
         viewer.importXML(bpmnText).then(() => {
           const canvas = viewer.get("canvas") as any;
           canvas.zoom("fit-viewport");

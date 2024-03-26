@@ -9,11 +9,11 @@ export function Layout() {
   return (
     <div className="w-full h-full bg-background flex flex-col">
       <Header />
-      {/* <input type="file" onChange={(e) => setBpmn(e.target.files?.[0])} /> */}
-      {/* <div className="flex-grow">
-        {bpmn ? <BpmnEditor diagram={bpmn} /> : null}
-      </div> */}
-      <Projects />
+      <input type="file" onChange={(e) => setBpmn(e.target.files?.[0])} />
+      <div className="flex-grow">
+        <BpmnEditor diagram={bpmn} />
+      </div>
+      {/* <Projects /> */}
       {/* <footer className="h-10"> footer </footer> */}
     </div>
   );
