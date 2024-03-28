@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Header } from "./header/Header";
 import { BpmnEditor } from "../components/BpmnEditor";
-import { Projects } from "./projects-page/Projects";
 
 export function Layout() {
   const [bpmn, setBpmn] = useState<File>();

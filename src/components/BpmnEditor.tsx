@@ -19,7 +19,9 @@ export function BpmnEditor({ diagram }: { diagram?: File | undefined }) {
 
       await viewer.importXML(bpmnText);
 
-      viewer.get("canvas")?.zoom("fit-viewport");
+      const canva = viewer.get("canvas") as { zoom: (value: string) => void };
+
+      canva.zoom("fit-viewport");
     } catch (err) {
       console.log("error rendering bpmn", err);
     }
